@@ -22,6 +22,8 @@ resolution = 30
 end
 matrix = Matrix[results]
 
+`killall gnuplot_x11`
+
 Gnuplot.open do |gp|
   Gnuplot::SPlot.new( gp ) do |plot|
     plot.grid
