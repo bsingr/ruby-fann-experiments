@@ -2,7 +2,7 @@
 $:.unshift File.join(File.dirname(__FILE__), '..')
 require 'example_env'
 
-and_data = training_data 'and_binary'
+and_data = training_data(ARGV.first || 'or_binary')
 train = build_train_data(and_data)
 fann = RubyFann::Standard.new(:num_inputs=>2,
                               :hidden_neurons=>[1],
