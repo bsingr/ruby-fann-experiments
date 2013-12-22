@@ -22,31 +22,6 @@ resolution = 30
 end
 matrix = Matrix[results]
 
-`killall gnuplot_x11`
-
-Gnuplot.open do |gp|
-  Gnuplot::SPlot.new( gp ) do |plot|
-    plot.grid
-
-    plot.xlabel "x1"
-    plot.ylabel "x2"
-    plot.zlabel "h"
-    plot.set "xrange [0:1]"
-    plot.set "yrange [0:1]"
-    plot.set "zrange [0:1]"
-    plot.set "xtics 0.25"
-    plot.set "ytics 0.25"
-    plot.set "ztics 0.25"
-    #plot.set "surface"
-    #plot.set "view 50,10,1.0,1.0"
-    #plot.set "dgrid3d 50,50,3"
-
-    plot.data << Gnuplot::DataSet.new([matrix.row(0).to_a,
-                                       matrix.row(1).to_a,
-                                       matrix.row(2).to_a]) do |ds|
-      ds.title = NAME
-      ds.using = "1:2:3"
-      ds.with = "points palette pointsize 2 pointtype 7"
-    end
-  end
-end
+Plotter.terminate_all!
+plotter = Plotter.new
+plotter.plot matrix
