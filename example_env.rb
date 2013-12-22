@@ -1,7 +1,9 @@
 require 'bundler'
 Bundler.require
 
+require 'pp'
 require 'csv'
+require 'matrix'
 
 def training_data name
   raise ArgumentError, 'training data requires name' unless name

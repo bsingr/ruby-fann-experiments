@@ -1,12 +1,12 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    ascii_charts (0.9.1)
+    gnuplot (2.6.2)
     ruby-fann (1.2.6)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  ascii_charts
+  gnuplot
   ruby-fann
