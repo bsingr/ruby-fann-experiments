@@ -7,9 +7,9 @@ NAME = ARGV.first || 'or_binary'
 and_data = training_data(NAME)
 train = build_train_data(and_data)
 fann = RubyFann::Standard.new(:num_inputs=>2,
-                              :hidden_neurons=>[2,2],
+                              :hidden_neurons=>[4,4],
                               :num_outputs=>1)
-fann.train_on_data(train, 100, 100, 0.01) # max epochs, errors between reports, desired mean-squared-error
+fann.train_on_data(train, 1000, 100, 0.01) # max epochs, errors between reports, desired mean-squared-error
 results = []
 
 resolution = 30
@@ -44,7 +44,7 @@ Gnuplot.open do |gp|
                                        matrix.row(2).to_a]) do |ds|
       ds.title = NAME
       ds.using = "1:2:3"
-      ds.with = "points palette pointsize 1 pointtype 7"
+      ds.with = "points palette pointsize 2 pointtype 7"
     end
   end
 end
