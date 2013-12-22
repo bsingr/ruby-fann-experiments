@@ -2,8 +2,8 @@
 $:.unshift File.join(File.dirname(__FILE__), '..')
 require 'example_env'
 
-train = RubyFann::TrainData.new(:inputs=>[[0,0],[0,1],[1,0],[1,1]],
-                                :desired_outputs=>[[0], [0], [0], [1]])
+and_data = training_data 'and_binary'
+train = build_train_data(and_data)
 fann = RubyFann::Standard.new(:num_inputs=>2,
                               :hidden_neurons=>[1],
                               :num_outputs=>1)
