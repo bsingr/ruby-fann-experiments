@@ -4,17 +4,18 @@ require 'example_env'
 
 NAME = ARGV.first || 'tictactoe'
 
-and_data = training_data(NAME)
-train = build_train_data(and_data)
+data = training_data(NAME)
+p data[:inputs].last
+p data[:outputs].last
+train = build_train_data(data)
 fann = RubyFann::Standard.new(:num_inputs=>9,
-                              :hidden_neurons=>[3,3,3],
+                              :hidden_neurons=>[12,6,6,6,6,6,6],
                               :num_outputs=>1)
-fann.train_on_data(train, 1000, 100, 0.01) # max epochs, errors between reports, desired mean-squared-error
-results = []
+fann.train_on_data(train, 300, 100, 0.1) # max epochs, errors between reports, desired mean-squared-error
 
-
-p fann.run([0,0,-1, 0,-1,-1, 1,1,1].map &:to_f)
-p fann.run([0,0,-1, 0,-1,0, 1,1,1].map &:to_f)
-p fann.run([0,0,-1, 0,-1,-1, 1,0,1].map &:to_f)
-p fann.run([0,0,-1, 0,-1,-1, 1,1,1].map &:to_f)
-p fann.run([0,0,1, -1,-1,-1, 0,1,1].map &:to_f)
+p fann.run([0,0,-1, 0,-1,-1, 1,1,1]) # 1
+p fann.run([0,0,-1, 0,-1,0, 1,1,1]) # 1
+p fann.run([0,0,-1, 0,-1,-1, 1,0,1]) # 0
+p fann.run([0,0,-1, 0,-1,-1, 1,1,1]) # 1
+p fann.run([0,0,1, -1,-1,-1, 0,1,1]) # -1
+p fann.run([0,1,1, -1,-1,-1, -1,1,1]) # -1
