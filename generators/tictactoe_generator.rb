@@ -67,10 +67,11 @@ end
 final_permutations_and_winners = balanced_permutations.map do |p|
   situation = TTT::Situation.new(p)
   situation.valid_permutation_with_winner(1)
-end.compact
+end.compact.sort{|a,b| a.last**2 <=> b.last**2}
 
-# p final_permutations.size
-# p final_permutations.last
-# p winners.last
+p final_permutations_and_winners.size
+p final_permutations_and_winners.first
+p final_permutations_and_winners[final_permutations_and_winners.size / 2]
+p final_permutations_and_winners.last
 
 write_training_data 'tictactoe', final_permutations_and_winners
