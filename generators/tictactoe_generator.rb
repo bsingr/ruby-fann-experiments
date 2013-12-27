@@ -66,7 +66,7 @@ end
 # and only keep permutations with one clear winner (not more than one)
 final_permutations_and_winners = balanced_permutations.map do |p|
   situation = TTT::Situation.new(p)
-  situation.valid_permutation_with_winner(3)
+  situation.valid_permutation_with_winner(1)
 end.compact
 
 # p final_permutations.size
