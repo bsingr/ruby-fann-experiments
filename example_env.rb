@@ -4,6 +4,7 @@ Bundler.require
 require 'pp'
 require 'csv'
 require 'matrix'
+require File.join(File.dirname(__FILE__), 'lib', 'tictactoe', 'situation')
 
 def training_data name
   raise ArgumentError, 'training data requires name' unless name
