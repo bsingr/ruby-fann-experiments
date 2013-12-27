@@ -64,8 +64,7 @@ end
 
 # calculate winner
 # and only keep permutations with one clear winner (not more than one)
-winners = []
-final_permutations = balanced_permutations.map do |p|
+final_permutations_and_winners = balanced_permutations.map do |p|
   strikes = [p[0]+p[1]+p[2], # row 1
              p[3]+p[4]+p[5], # row 2
              p[6]+p[7]+p[8], # row 3
@@ -84,8 +83,7 @@ final_permutations = balanced_permutations.map do |p|
     else
       0
     end
-    winners << winner
-    p
+    p.push winner
   else 
     # noop, too much winners
   end
@@ -95,4 +93,4 @@ end.compact
 # p final_permutations.last
 # p winners.last
 
-write_training_data 'tictactoe', final_permutations, winners
+write_training_data 'tictactoe', final_permutations_and_winners

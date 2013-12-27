@@ -20,15 +20,13 @@ def training_data name
   {:inputs => inputs, :outputs => outputs}
 end
 
-def write_training_data name, inputs, outputs
+def write_training_data name, data
   raise ArgumentError, 'training data requires name' unless name
-  raise ArgumentError, 'inputs not given' unless inputs
-  raise ArgumentError, 'outputs not given' unless outputs
+  raise ArgumentError, 'data not given' unless data
   csv_path = File.join(File.dirname(__FILE__), 'training_data', name + '.csv')
   CSV.open(csv_path, 'wb') do |csv|
     csv << %w[ x1 x2 x3 x4 x5 x6 x7 x8 x9 winner ]
-    inputs.size.times do |i|
-      row = inputs[i].push outputs[i]
+    data.each do |row|
       csv << row
     end
   end
