@@ -3,6 +3,7 @@ GEM
   specs:
     gnuplot (2.6.2)
     ruby-fann (1.2.6)
+    ruby-graphviz (1.0.9)
 
 PLATFORMS
   ruby
@@ -10,3 +11,4 @@ PLATFORMS
 DEPENDENCIES
   gnuplot
   ruby-fann
+  ruby-graphviz

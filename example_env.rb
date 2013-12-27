@@ -4,6 +4,7 @@ Bundler.require
 require 'pp'
 require 'csv'
 require 'matrix'
+require 'ruby_fann/neurotica'
 require File.join(File.dirname(__FILE__), 'lib', 'tictactoe', 'situation')
 
 def training_data name
