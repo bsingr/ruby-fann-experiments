@@ -20,6 +20,20 @@ def training_data name
   {:inputs => inputs, :outputs => outputs}
 end
 
+def write_training_data name, inputs, outputs
+  raise ArgumentError, 'training data requires name' unless name
+  raise ArgumentError, 'inputs not given' unless inputs
+  raise ArgumentError, 'outputs not given' unless outputs
+  csv_path = File.join(File.dirname(__FILE__), 'training_data', name + '.csv')
+  CSV.open(csv_path, 'wb') do |csv|
+    csv << %w[ x1 x2 x3 x4 x5 x6 x7 x8 x9 winner ]
+    inputs.size.times do |i|
+      row = inputs[i].push outputs[i]
+      csv << row
+    end
+  end
+end
+
 def build_train_data training_data
    RubyFann::TrainData.new :inputs => training_data[:inputs].map{|i| i.map &:to_f},
                            :desired_outputs => training_data[:outputs].map{|o| [o.to_f]}
