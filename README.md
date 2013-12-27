@@ -10,6 +10,8 @@ Learning about FANN http://leenissen.dk/fann/wp/
 
 `./examples/bool_example xor_decimal`
 
+![xor.png](xor.png)
+
 ## License
 
 Copyright (c) 2013 Jens Bissinger. See [LICENSE.txt](LICENSE.txt).
