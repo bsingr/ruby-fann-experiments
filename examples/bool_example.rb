@@ -9,7 +9,7 @@ train = build_train_data(and_data)
 fann = RubyFann::Standard.new(:num_inputs=>2,
                               :hidden_neurons=>[4,4],
                               :num_outputs=>1)
-fann.train_on_data(train, 1000, 100, 0.01) # max epochs, errors between reports, desired mean-squared-error
+fann.train_on_data(train, 10000, 100, 0.01) # max epochs, errors between reports, desired mean-squared-error
 results = []
 
 resolution = 30
