@@ -77,9 +77,9 @@ final_permutations_and_winners = balanced_permutations.map do |p|
   plus_winning_strikes = strikes.find_all{|s| s == 3}
   if (minus_winning_strikes.size + plus_winning_strikes.size) <= 1
     winner = if minus_winning_strikes.size == 1
-      -1
+      -3
     elsif plus_winning_strikes.size == 1
-      1
+      3
     else
       0
     end
